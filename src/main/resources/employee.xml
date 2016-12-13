@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employee>
+  <eid>eid</eid>
+  <name>name</name>
+  <joiningdate>2001-12-31T12:00:00</joiningdate>
+  <department>hr</department>
+</employee>

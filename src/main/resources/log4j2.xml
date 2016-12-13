@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="5">
+    <Appenders>
+        <RollingFile name="APPLOGFILE"
+                     fileName="target/logs/app.log"
+                     filePattern="target/logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>[%t] %d{DATE} %-5p %-15c{1} [%X]: %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="2"/>
+        </RollingFile>
+        <Console name="STDOUT" target="SYSTEM_OUT" ignoreExceptions="false">
+      		<PatternLayout pattern="%m%n"/>
+    	</Console>
+   </Appenders>
+
+    <Loggers>
+        <Logger name="com.employee" level="debug" additivity="false">
+            <AppenderRef ref="APPLOGFILE"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -21,7 +21,8 @@
         <Logger name="com.employee" level="debug" additivity="false">
             <AppenderRef ref="APPLOGFILE"/>
         </Logger>
-        <Root level="info">
+        <Root level="debug">
+        	<AppenderRef ref="APPLOGFILE"/>
             <AppenderRef ref="STDOUT"/>
         </Root>
     </Loggers>

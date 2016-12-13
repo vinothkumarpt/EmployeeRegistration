@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
+import com.employee.registration.dao.entity.EmployeeTable;
 import com.employee.registration.exception.EmployeeRegistrationException;
 import com.employee.registration.service.entity.Employee;
 
@@ -135,5 +136,19 @@ public class EmpRegistrationUtil {
 		  .append(totalTime)
 		  .append(EmpRegistAppConstants.MILLE_SECOND);
 		  LOGGER.debug(timetaken.toString());
+	  }
+	  
+	  public static Boolean is24hoursElasped(EmployeeTable empObj){
+		  
+		  long registTime = empObj.getRequestTimeStamp().getTime();
+		  long currentTime = System.currentTimeMillis();
+		  long diff = currentTime - registTime;
+		  
+		  long elapSeconds = diff/1000;
+		  long totalSecIn24Hrs = 86400;
+		  if(elapSeconds  > totalSecIn24Hrs)
+		   return true;
+	
+		  else return false;
 	  }
 }
